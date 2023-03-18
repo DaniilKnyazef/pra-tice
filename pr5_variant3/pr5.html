@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Поиск первой запятой в массиве</title>
+</head>
+<body>
+	<button onclick="findComma()">Найти запятую</button>
+	<script>
+		function findComma() {
+			const arr = ['a', 'b', ',', 'd', 'e'];
+
+			const index = arr.indexOf(',');
+
+			if (index !== -1) {
+				alert(`Первая запятая найдена под индексом: ${index}`);
+			} else {
+				alert('Запятая не найдена в массиве');
+			}
+		}
+	</script>
+</body>
+</html>
