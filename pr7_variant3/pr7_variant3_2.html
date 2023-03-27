@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Смена цвета фона</title>
+</head>
+<body style="background-color: yellow;">
+	<button id="colorBtn">Розовый</button>
+
+	<script>
+		const button = document.getElementById('colorBtn');
+		let isPink = false;
+
+		button.addEventListener('click', () => {
+			if (isPink) {
+				document.body.style.backgroundColor = 'yellow';
+				button.innerHTML = 'Розовый';
+				isPink = false;
+			} else {
+				document.body.style.backgroundColor = 'pink';
+				button.innerHTML = 'Желтый';
+				isPink = true;
+			}
+		});
+	</script>
+</body>
+</html>
