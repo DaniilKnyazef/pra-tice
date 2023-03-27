@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Comments on the days of the week</title>
+</head>
+<body>
+  <button id="start-btn">Start</button>
+  <button id="close-btn" disabled>Close</button>
+  <script>
+    var popupWindow = null;
+
+    function openPopup(comment) {
+      popupWindow = window.open("", "", "width=200,height=200");
+      var heading = document.createElement("h3");
+      // Задаем свойства для разных комментариев
+      if (comment === "Рабочий день") {
+        heading.style.color = "green";
+        heading.style.textAlign = "center";
+      } else if (comment === "Выходной день") {
+        heading.style.color = "blue";
+        heading.style.textAlign = "right";
+      } else {
+        heading.style.color = "red";
+        heading.style.textAlign = "left";
+      }
+      // Устанавливаем текст заголовка и добавляем его в новое окно
+      heading.textContent = comment;
+      popupWindow.document.body.appendChild(heading);
+      // Делаем кнопку Close доступной
+      document.getElementById("close-btn").disabled = false;
+    }
+
+    function closePopup() {
+      // Закрываем новое окно и делаем кнопку Close недоступной
+      popupWindow.close();
+      document.getElementById("close-btn").disabled = true;
+    }
+
+    document.getElementById("start-btn").addEventListener("click", function() {
+      var dayOfWeek = prompt("Введите номер дня недели:");
+      var comment;
+      switch (dayOfWeek) {
+        case "1":
+        case "2":
+        case "3":
+        case "4":
+        case "5":
+          comment = "Рабочий день";
+          break;
+        case "6":
+        case "7":
+          comment = "Выходной день";
+          break;
+        default:
+          comment = "Ошибка";
+          break;
+      }
+      openPopup(comment);
+    });
+
+    document.getElementById("close-btn").addEventListener("click", function() {
+      closePopup();
+    });
+  </script>
+</body>
+</html>
