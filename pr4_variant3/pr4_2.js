@@ -6,7 +6,7 @@ for (let i = 0; i < 10; i++) {
 
 const result = [];
 for (let i = 0; i < A.length; i++) {
-  if (i % 5 === 0) {
+  if (i % 5 == 0) {
     result.push(A[i]);
   }
 }

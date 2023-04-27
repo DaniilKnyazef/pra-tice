@@ -7,17 +7,27 @@
 	<button id="colorBtn">Розовый</button>
 
 	<script>
+		// Получаем кнопку по id
 		const button = document.getElementById('colorBtn');
+		// Устанавливаем изначальное значение флага
 		let isPink = false;
 
+		// Добавляем обработчик события click
 		button.addEventListener('click', () => {
+			// Если цвет фона розовый
 			if (isPink) {
+				// Меняем цвет фона на желтый
 				document.body.style.backgroundColor = 'yellow';
+				// Меняем текст на кнопке на Розовый
 				button.innerHTML = 'Розовый';
+				// Обновляем значение флага
 				isPink = false;
 			} else {
+				// Иначе, меняем цвет фона на розовый
 				document.body.style.backgroundColor = 'pink';
+				// Меняем текст на кнопке на Желтый
 				button.innerHTML = 'Желтый';
+				// Обновляем значение флага
 				isPink = true;
 			}
 		});

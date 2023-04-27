@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>Comments on the days of the week</title>
+  <meta charset="UTF-8"> 
+  <title>Comments on the days of the week</title> 
 </head>
 <body>
-  <button id="start-btn">Start</button>
-  <button id="close-btn" disabled>Close</button>
+  <button id="start-btn">Start</button> 
+  <button id="close-btn" disabled>Close</button> 
   <script>
-    var popupWindow = null;
+    var popupWindow = null; 
 
-    function openPopup(comment) {
-      popupWindow = window.open("", "", "width=200,height=200");
-      var heading = document.createElement("h3");
+    function openPopup(comment) { // Объявляем функцию для открытия нового окна
+      popupWindow = window.open("", "", "width=200,height=200"); // Создаем новое окно
+      var heading = document.createElement("h3"); // Создаем новый заголовок типа h3
       // Задаем свойства для разных комментариев
       if (comment === "Рабочий день") {
         heading.style.color = "green";
@@ -31,16 +31,17 @@
       document.getElementById("close-btn").disabled = false;
     }
 
-    function closePopup() {
+    function closePopup() { // Объявляем функцию для закрытия нового окна
       // Закрываем новое окно и делаем кнопку Close недоступной
       popupWindow.close();
       document.getElementById("close-btn").disabled = true;
     }
 
+    // Добавляем обработчик события на кнопку Start
     document.getElementById("start-btn").addEventListener("click", function() {
-      var dayOfWeek = prompt("Введите номер дня недели:");
+      var dayOfWeek = prompt("Введите номер дня недели:"); // Запрашиваем у пользователя номер дня недели
       var comment;
-      switch (dayOfWeek) {
+      switch (dayOfWeek) { // Определяем комментарий в зависимости от введенного номера дня недели
         case "1":
         case "2":
         case "3":
@@ -56,11 +57,12 @@
           comment = "Ошибка";
           break;
       }
-      openPopup(comment);
+      openPopup(comment); // Вызываем функцию для открытия нового окна с комментарием
     });
 
+    // Добавляем обработчик события на кнопку Close
     document.getElementById("close-btn").addEventListener("click", function() {
-      closePopup();
+      closePopup(); // Вызываем функцию для закрытия нового окна
     });
   </script>
 </body>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Замена заголовков второго уровня</title>
+	<style>
+		.border {
+			border: 1px solid black;
+			padding: 10px;
+			margin: 10px;
+		}
+	</style>
+</head>
+<body>
+	<button onclick="replaceHeaders()">Заменить заголовки второго уровня</button>
+
+	<h2>Заголовок 1</h2>
+	<h2>Заголовок 2</h2>
+	<h2>Заголовок 3</h2>
+
+	<script>
+		function replaceHeaders() {
+			const newHeaderText = prompt("Введите новый текст для заголовков второго уровня:");
+
+			// Найти все заголовки второго уровня на странице
+			const headers = document.getElementsByTagName("h2");
+
+			// Проходимся по каждому заголовку и заменяем его текст на новый
+			for (let i = 0; i < headers.length; i++) {
+				headers[i].innerText = newHeaderText;
+
+				headers[i].style.border = "1px solid black";
+				headers[i].style.padding = "10px";
+				headers[i].style.margin = "10px";
+			}
+		}
+	</script>
+</body>
+</html>

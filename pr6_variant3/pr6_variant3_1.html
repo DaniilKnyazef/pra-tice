@@ -56,15 +56,18 @@
         heading.className = "error";
         heading.textContent = "Ошибка: введите номер дня от 1 до 7";
       }
+      // Добавляем заголовок в тело документа
       document.body.appendChild(heading);
     }
 
+    // Обработчик события "DOMContentLoaded", который запускается после загрузки документа
     document.addEventListener("DOMContentLoaded", function() {
       var day = prompt("Введите номер дня недели:");
       day = parseInt(day);
       showComment(day);
     });
 
+    // Устанавливаем стили для всего тела документа
     document.body.style.color = "purple";
     document.body.style.textAlign = "center";
   </script>

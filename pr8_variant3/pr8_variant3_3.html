@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Квадрат числа в абзаце</title>
+</head>
+<body>
+	<p>2</p>
+	<p>4</p>
+	<p>6</p>
+	<p>8</p>
+	<p>10</p>
+
+	<script>
+		// Получаем все абзацы на странице
+		const paragraphs = document.getElementsByTagName("p");
+
+		// Перебираем все абзацы и добавляем обработчик события на клик
+		for (let i = 0; i < paragraphs.length; i++) {
+			paragraphs[i].addEventListener("click", function() {
+				// Получаем число внутри абзаца
+				const number = parseInt(this.textContent);
+
+				// Вычисляем квадрат числа и записываем его внутрь абзаца
+				this.textContent = Math.pow(number, 2);
+			});
+		}
+	</script>
+</body>
+</html>

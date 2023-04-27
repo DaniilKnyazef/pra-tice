@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Движущийся рисунок</title>
+    <style>
+      #background-image {
+        position: absolute;
+        z-index: -1;
+        width: 50%;
+        height: 100%;
+        object-fit: cover;
+      }
+      #moving-image {
+        position: absolute;
+        width: 50%;
+        height: auto;
+        bottom: 0;
+        right: -50%;
+        z-index: 1;
+        transition: right 3s linear;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="image.jpg" alt="background image" id="background-image">
+    <img src="tich.gif" alt="moving image" id="moving-image">
+    <script>
+      // Получаем элемент, который будет двигаться
+      var movingImage = document.getElementById('moving-image');
+      // Получаем ширину окна браузера
+      var windowWidth = window.innerWidth;
+      // Получаем ширину двигающегося изображения
+      var imageWidth = movingImage.getBoundingClientRect().width;
+
+      // Через 1 секунду после загрузки страницы запускаем анимацию
+      setTimeout(function() {
+        movingImage.style.right = '0';
+      }, 1000);
+
+      // По окончании анимации проверяем, достигло ли изображение левого края окна
+      movingImage.addEventListener('transitionend', function() {
+        // Получаем координату левого края двигающегося изображения
+        var imageLeft = movingImage.getBoundingClientRect().left;
+        // Если изображение достигло левого края окна браузера
+        if (imageLeft <= 0) {
+          // Сдвигаем изображение за левый край окна браузера
+          movingImage.style.right = imageWidth + 'px';
+          // Останавливаем анимацию
+          movingImage.style.animation = 'none';
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Меняем шрифт</title>
+</head>
+<body>
+	<p id="text">Измените размер шрифта</p>
+	<button onclick="changeSize()">Жми</button>
+
+	<script>
+		function changeSize() {
+			// Получаем элементы абзаца и кнопки по их id и тегу соответственно
+			var text = document.getElementById("text");
+			var button = document.getElementsByTagName("button")[0];
+			// Если размер шрифта уже 20pt, то возвращаем его к обычному размеру и меняем название кнопки
+			if (text.style.fontSize == '20pt') {
+				text.style.fontSize = '';
+				button.textContent = "Еще раз";
+			} else { // Иначе устанавливаем размер шрифта 20pt и меняем название кнопки
+				text.style.fontSize = '20pt';
+				button.textContent = "Еще раз";
+			}
+		}
+	</script>
+</body>
+</html>
